@@ -1,15 +1,16 @@
+import { useState } from "react";
+import { MeetingProvider } from "./Providers/MeetingContext";
+import JoinMeeting from "./Components/JoinMeetingPage";
 import VideoChat from "./Components/VideoChat";
-import PropTypes from "prop-types";
-
-const ROOM_ID = "1";
 
 const App = () => {
+  const [inMeeting, setInMeeting] = useState(false);
+
   return (
-    <>
-      <VideoChat ROOM_ID={ROOM_ID} />
-    </>
+    <MeetingProvider>
+      <VideoChat />
+    </MeetingProvider>
   );
 };
-
 
 export default App;
